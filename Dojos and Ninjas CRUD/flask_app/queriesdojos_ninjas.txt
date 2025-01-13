@@ -1,0 +1,77 @@
+
+3
+INSERT INTO `dojos` (`name`, `created_at`, `updated_at`) VALUES
+('Prealpha', NOW(), NOW()),
+('Alpha', NOW(), NOW()),
+('Beta', NOW(), NOW());
+
+
+4
+DELETE FROM `dojos` WHERE `name` IN ('Prealpha', 'Alpha', 'Beta');
+
+
+5
+INSERT INTO `dojos` (`name`, `created_at`, `updated_at`) VALUES
+('Jon', NOW(), NOW()),
+('Jane', NOW(), NOW()),
+('Jet', NOW(), NOW());
+
+
+
+6
+INSERT INTO `ninjas` (`first_name`, `last_name`, `age`, `dojos_id`, `created_at`, `updated_at`) VALUES
+('Fon', 'Prelpha', 21, 1, NOW(), NOW()),
+('Fane', 'Prelpha', 22, 1, NOW(), NOW()),
+('Fet', 'Prealpha', 23, 1, NOW(), NOW());
+
+
+7
+INSERT INTO `ninjas` (`first_name`, `last_name`, `age`, `dojos_id`, `created_at`, `updated_at`) VALUES
+('Son', 'Alpha', 24, 2, NOW(), NOW()),
+('Sane', 'Alpha', 25, 2, NOW(), NOW()),
+('Set', 'Alpha', 26, 2, NOW(), NOW());
+
+
+8
+INSERT INTO `ninjas` (`first_name`, `last_name`, `age`, `dojos_id`, `created_at`, `updated_at`) VALUES
+('Von', 'Beta', 27, 3, NOW(), NOW()),
+('Vane', 'Beta', 28, 3, NOW(), NOW()),
+('Vet', 'Beta', 29, 3, NOW(), NOW());
+
+9
+SELECT * FROM `ninjas` WHERE `dojos_id` = 1;
+
+
+10
+SELECT * FROM `ninjas` WHERE `dojos_id` = 3;
+
+
+11
+SELECT `dojos`.* FROM `dojos`
+JOIN `ninjas` ON `dojos`.`id` = `ninjas`.`dojos_id`
+WHERE `ninjas`.`id` = (SELECT MAX(`id`) FROM `ninjas`);
+
+
+12
+SELECT `ninjas`.*, `dojos`.* FROM `ninjas`
+JOIN `dojos` ON `ninjas`.`dojos_id` = `dojos`.`id`
+WHERE `ninjas`.`id` = 6;
+
+13
+SELECT `ninjas`.*, `dojos`.* FROM `ninjas`
+JOIN `dojos` ON `ninjas`.`dojos_id` = `dojos`.`id`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
